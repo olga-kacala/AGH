@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding:0;
+
+}
+
+header {
+    display:flex;
+    color: rgb(93,93,96);
+    background-color: white;
+    text-align: center;
+    height:15vh;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+main {
+    background-color: white;
+    display:flex;
+    height: 75vh;
+    flex-direction: column;
+}
+
+.contentContainer {
+    display: flex;
+    height: 70%;
+}
+
+.picContainer {
+    display:flex;
+    flex-direction: row;
+width: 35vw;
+align-items: center;
+background-color: rgb(32, 32, 32);
+border-radius: 0 50% 50% 0;
+}
+
+.funny {
+width: 80%;
+height: auto;
+}
+
+.nav {
+display: flex;
+flex-direction: column;
+background-color: white;
+width: 70vw;
+justify-content: center;
+}
+
+.shadow{
+    display: flex;
+    align-items: end;
+height: 23vh;
+border-radius: 50% 50% 0 0;
+background: rgb(128,128,128);
+background: linear-gradient(0deg, rgba(128,128,128,1) 0%, rgba(252,252,252,1) 100%); 
+}
+
+
+.listContainer {
+text-align: center;
+}
+
+
+dl {
+list-style: none;
+    }
+
+img {
+height: 60px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    display: flex;
+    background-color: #808080;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+}
+.aghLogo {
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    text-align: center;
+}

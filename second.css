@@ -1,0 +1,20 @@
+body {
+    background-color: rgb(165, 165, 243);
+  display: flex;
+  margin:0;
+  padding:0;
+}
+
+main {
+   
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    height: 100vh;
+}
+
+.suprise {
+    width: 100vw;
+    align-self: center;
+}
