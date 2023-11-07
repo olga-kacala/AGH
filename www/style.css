@@ -23,7 +23,7 @@ nav {
 .navLogo{
 border-radius: 50%;
 margin-right: 10vw;
-height: 10vh;
+height: 120px;
 }
 
 h1 {
@@ -53,16 +53,8 @@ main {
 }
 
 .funny {
-  width: 80%;
+  width: 90%;
   height: auto;
-}
-
-.nav {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  width: 65vw;
-  justify-content: center;
 }
 
 .shadow {
@@ -79,18 +71,25 @@ main {
 }
 
 .listContainer {
+  display: flex;
   text-align: center;
+  justify-content: center;
+  width: 65vw;
 }
 
 dl {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 img {
+
   height: 100px;
 }
 
-li > img:hover
+img:hover
  {
   transform: scale(1.1);
 }
