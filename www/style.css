@@ -17,7 +17,7 @@ header {
 
 nav {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
 }
 
 .navShadow {
@@ -171,6 +171,7 @@ form {
   justify-content: center;
   align-items: center;
 }
+
 .aghLogo {
   justify-content: center;
   align-items: center;
@@ -183,15 +184,30 @@ form {
   h2 {
     font-size: 15px;
   }
+
   .contentContainer {
     margin: 0;
   }
+
   .navShadow {
     height: 20vh;
+  }
+
+  .listContainer {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 40vw;
   }
 
   iframe {
     width: auto;
     height: auto;
+  }
+
+  .smallCircle,
+  .bigCircle,
+  .circleContainer {
+    display: none;
   }
 }
