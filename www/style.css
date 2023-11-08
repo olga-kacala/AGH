@@ -16,18 +16,23 @@ header {
 }
 
 nav {
-    display: flex;
+  display: flex;
   justify-content: right;
 }
 
-.navLogo{
-border-radius: 50%;
-margin-right: 10vw;
-height: 120px;
+.navShadow {
+  background-color: black;
+  border-radius:50% 0 0 50%;
+}
+
+.navLogo {
+  border-radius: 50%;
+  margin: 5vw;
+  height: 120px;
 }
 
 h1 {
-  color: #66fcf1;
+  color: rgb(193,13,20);
   margin: 0;
 }
 
@@ -40,7 +45,7 @@ main {
 
 .contentContainer {
   display: flex;
-  height: 70%;
+  height: 100%;
 }
 
 .picContainer {
@@ -57,24 +62,14 @@ main {
   height: auto;
 }
 
-.shadow {
-  display: flex;
-  align-items: end;
-  height: 23vh;
-  border-radius: 50% 50% 0 0;
-  background: rgb(128, 128, 128);
-  background: linear-gradient(
-    0deg,
-    rgba(128, 128, 128, 1) 0%,
-    rgba(252, 252, 252, 1) 100%
-  );
-}
+
 
 .listContainer {
   display: flex;
   text-align: center;
   justify-content: center;
   width: 65vw;
+  margin-top:100px;
 }
 
 dl {
@@ -85,12 +80,10 @@ dl {
 }
 
 img {
-
-  height: 160px;
+  height: 130px;
 }
 
-img:hover
- {
+img:hover {
   transform: scale(1.1);
 }
 
