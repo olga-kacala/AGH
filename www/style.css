@@ -55,6 +55,10 @@ main {
   display: flex;
   height: 100%;
   justify-content: center;
+  background-image: radial-gradient(#c4bfbf 20%, #ffffff 20%);
+  background-position: 0 0;
+  background-size: 7px 7px;
+  width: 100%;
 }
 
 .picContainer {
@@ -114,4 +118,29 @@ a {
   align-items: center;
   height: 60px;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+
+  h1, h2 {
+    font-size: 15px;
+  }
+  .contentContainer {
+    margin: 0;
+    
+  }
+  .navShadow {
+    height:20vh;
+  
+  }
+
+  iframe {
+    width: auto;
+    height: auto;
+  }
+  /* .suprise {
+    width: 600px;
+    background-color: blue;
+  
+} */
 }
