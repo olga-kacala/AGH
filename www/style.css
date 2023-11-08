@@ -64,7 +64,7 @@ main {
 .picContainer {
   display: flex;
   flex-direction: row;
-  width: 35vw;
+  width: 40vw;
   align-items: center;
   background-color: rgb(32, 32, 32);
   border-radius: 0 50% 50% 0;
@@ -79,8 +79,7 @@ main {
   display: flex;
   text-align: center;
   justify-content: center;
-  width: 65vw;
-  margin-top: 100px;
+  width: 30vw;
 }
 
 dl {
@@ -106,6 +105,65 @@ a {
   align-items: center;
 }
 
+.circleContainer {
+  position: relative;
+}
+
+.smallCircle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: rgb(193, 13, 20);
+  margin-top: 60px;
+}
+
+.bigCircle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: #808080;
+  position: absolute;
+  top: 115px;
+  left: 130px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  color: #ffffff;
+  justify-content: center;
+  margin: 30px;
+}
+
+.formTitle,
+label {
+  text-align: right;
+  font-size: 20px;
+}
+
+form {
+  text-align: right;
+}
+
+.pickList {
+  text-align: right;
+}
+
+.formShadow {
+  background-color: black;
+  border-radius: 50% 0 0 50%;
+  height: 350px;
+  width: 20vw;
+  justify-content: center;
+  display: flex;
+  margin-top: auto;
+}
+
+.formShadow:hover {
+  background-color: rgb(193, 13, 20);
+}
+
 .footer {
   display: flex;
   background-color: #808080;
@@ -121,26 +179,19 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 15px;
   }
   .contentContainer {
     margin: 0;
-    
   }
   .navShadow {
-    height:20vh;
-  
+    height: 20vh;
   }
 
   iframe {
     width: auto;
     height: auto;
   }
-  /* .suprise {
-    width: 600px;
-    background-color: blue;
-  
-} */
 }

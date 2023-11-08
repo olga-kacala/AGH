@@ -39,6 +39,23 @@
             </li>
           </dl>
         </div>
+        <div class="circleContainer">
+          <div class="smallCircle"></div>
+          <div class="bigCircle"></div>
+        </div>
+        <div class="formShadow">
+          <div class="formContainer">
+            <h2 class="formTitle">What kind of a person are you?</h2>
+            <form>
+              <div class="pickList">
+                <label for="dog">Dog</label>
+                <input type="radio" id="dog" name="person" value="dog" />
+                <label for="cat">Cat</label>
+                <input type="radio" id="cat" name="person" value="cat" />
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </main>
     <footer class="footer">
@@ -46,5 +63,26 @@
         ><img class="aghLogo" src="Img/Logo.svg" alt="AGH logo"
       /></a>
     </footer>
+    <script>
+      const contentContainer = document.querySelector(".footer");
+      const circleContainer = document.querySelector(".smallCircle");
+      const dogRadio = document.getElementById("dog");
+      const catRadio = document.getElementById("cat");
+
+      function updateBackgroundColor() {
+        if (dogRadio.checked) {
+          contentContainer.style.backgroundImage = 'url("Img/doggo.jpeg")';
+          circleContainer.style.backgroundImage = 'url("Img/dogCircle.jpeg")';
+        } else if (catRadio.checked) {
+          contentContainer.style.backgroundImage = 'url("Img/catto.jpeg")';
+          circleContainer.style.backgroundImage = 'url("Img/catCircle.jpeg")';
+        }
+      }
+
+      dogRadio.addEventListener("change", updateBackgroundColor);
+      catRadio.addEventListener("change", updateBackgroundColor);
+
+      updateBackgroundColor();
+    </script>
   </body>
 </html>
