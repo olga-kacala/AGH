@@ -1,20 +1,42 @@
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        String name = "Piotr";
-        String surname = "Budynek";
-        long tel = 123456789;
-        String city = "Krakow";
-        String frame = "";
-        String sentence = "* tel. " + tel + " adres: " + city;
-        int l = sentence.length();
 
-        for (int i=1; i<=sentence.length(); i++){
-frame += "*";
+        Scanner scanner = new Scanner (System.in);
+
+        System.out.println("Enter your name: ");
+        String name = scanner.nextLine();
+
+        System.out.println("Enter your surname: ");
+        String surname = scanner.nextLine();
+
+        System.out.println("Enter your tel number (no white spaces): ");
+        long tel = scanner.nextLong();
+
+        scanner.nextLine();
+
+        System.out.println("Enter your city: ");
+        String city = scanner.nextLine();
+
+        String frame = "";
+        // String spaceMark = "";
+        String topSentence = "* " + name + " " + surname + " ";
+        String bottomSentence = "* tel. " + tel + " adres: " + city + " ";
+
+        if (topSentence.length() > bottomSentence.length()) {
+            for (int i=0; i<=topSentence.length(); i++){
+                frame += "*";
+                        }
+        } else {
+            for (int i=0; i<=bottomSentence.length(); i++){
+                frame += "*";
         }
-            System.out.println(frame);
-            System.out.println("* " + name + " " + surname);
-            System.out.println(sentence);
-            System.out.println(frame);
-         
-    }   
+    }
+    System.out.println(frame);
+    System.out.println(topSentence + "*");
+    System.out.println(bottomSentence + "*");
+    System.out.println(frame);
+    scanner.close();   
+}
 }
