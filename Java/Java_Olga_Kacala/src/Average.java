@@ -12,6 +12,22 @@ public class Average {
         return sum / (double) marks.length;
     }
 
+    public static int findMax(int[] marks) {
+        if (marks.length == 0) {
+            throw new IllegalArgumentException("Array is empty");
+        }
+
+        int max = marks[0];
+
+        for (int i = 1; i < marks.length; i++) {
+            if (marks[i] > max) {
+                max = marks[i];
+            }
+        }
+
+        return max;
+    }
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -32,6 +48,9 @@ public class Average {
         double result = average(marksArray);
         System.out.println("Śrenia z ocen ucznia: " + result);
         scanner.close();
+
+        int maxMark = findMax(marksArray);
+        System.out.println("Najwyższa ocena ucznia: " + maxMark);
     }
 
 }
