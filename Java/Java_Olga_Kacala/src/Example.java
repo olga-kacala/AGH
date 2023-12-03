@@ -4,9 +4,9 @@ public class Example {
         int b = 3;
         int c = 10;
 
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
+        // System.out.println(a);
+        // System.out.println(b);
+        // System.out.println(c);
 
         int d = a += b += c;
         System.out.println(d);
