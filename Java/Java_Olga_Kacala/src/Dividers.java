@@ -1,18 +1,32 @@
-import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Dividers {
 
     public static void main(String[] args) {
         int number = readNumber();
         int[] dividers = findDividers(number);
-        printDividers(dividers);
+        printDividers(number, dividers);
     }
 
     public static int readNumber() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter natural number: ");
-        return scanner.nextInt();
+        int number;
+
+        do {
+            System.out.println("Enter natural number: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Invalid number. Enter natural number: ");
+                scanner.next();
+            }
+            number = scanner.nextInt();
+
+            if (number <= 0) {
+                System.out.println("Invalid input. Enter positive number: ");
+                scanner.next();
+            }
+        } while (number <= 0);
+        return number;
     }
 
     public static boolean checkDividers(int a, int b) {
@@ -34,7 +48,9 @@ public class Dividers {
         return Arrays.copyOf(dividers, count);
     }
 
-    public static void printDividers(int[] dividers) {
+    public static void printDividers(int number, int[] dividers) {
+        int lenCount = dividers.length;
+        System.out.println("Number " + number + " has " + lenCount + " dividers.");
         System.out.println("Dividers: ");
         for (int divider : dividers) {
             System.out.print(divider + ", ");
