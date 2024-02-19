@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Olga Kacala - zad dom 1</title>
+    <script src="https://pixijs.download/v5.3.3/pixi.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      // Create a PixiJS application
+      const app = new PIXI.Application({
+        width: 1000,
+        height: 800,
+        backgroundColor: 0x87ceeb, // Sky Blue
+      });
+
+      // Append the PixiJS canvas to the HTML body
+      document.body.appendChild(app.view);
+
+      // Create a container for the scene elements
+      const sceneContainer = new PIXI.Container();
+      app.stage.addChild(sceneContainer);
+
+      // Create a simple house
+      const house = new PIXI.Graphics();
+      house.beginFill(0x90ee90);
+      house.drawRect(0, 720, 1000, 80); // Grass
+      house.drawRect(0, 220, 1000, 400); // Grass
+      house.beginFill(0xc0c0c0);
+      house.drawRect(300, 400, 400, 200); // Base
+      house.drawRect(800, 400, 50, 200); // Column
+      house.drawRect(900, 400, 50, 200); // Column
+      house.beginFill(0x00008b);
+      house.drawRect(500, 400, 60, 200); // Window
+      house.drawRect(600, 400, 60, 200); // Window
+      house.drawRect(700, 400, 60, 200); // Window
+      house.beginFill(0x808080);
+      house.drawRect(300, 400, 650, 30); // Roof
+      house.beginFill(0x404040);
+      house.drawRect(0, 600, 1000, 150); // Driveway
+
+      house.endFill(0xff4500);
+
+      // Create a tree
+      const tree = new PIXI.Graphics();
+      tree.beginFill(0x8b4513); // Saddle Brown color
+      tree.drawRect(100, 250, 20, 100); // Trunk
+      tree.drawRect(200, 350, 20, 100); // Trunk
+      tree.drawRect(300, 150, 20, 100); // Trunk
+      tree.drawRect(370, 150, 20, 100); // Trunk
+
+      tree.drawRect(50, 250, 20, 100); // Trunk
+      tree.drawRect(250, 450, 20, 100); // Trunk
+      tree.drawRect(600, 150, 20, 100); // Trunk
+
+      tree.beginFill(0x228b22); // Forest Green color
+      tree.drawCircle(110, 200, 50); // Leaves
+      tree.drawCircle(210, 330, 50); // Leaves
+      tree.drawCircle(310, 100, 50); // Leaves
+      tree.drawCircle(380, 100, 50); // Leaves
+
+      tree.beginFill(0xffa500);
+      tree.drawCircle(60, 250, 50); // Leaves
+      tree.drawCircle(260, 400, 50); // Leaves
+      tree.drawCircle(610, 130, 50); // Leaves
+      tree.endFill();
+
+      // Create a flower
+      const flower = new PIXI.Graphics();
+      flower.beginFill(0xff1493); // Deep Pink color
+      flower.drawCircle(100, 400, 5); // Center of the flower
+      for (let i = 0; i < 6; i++) {
+        const angle = i * (Math.PI / 3);
+        const x = 100 + Math.cos(angle) * 10;
+        const y = 400 + Math.sin(angle) * 10;
+        flower.drawCircle(x, y, 5); // Petals
+      }
+
+      flower.drawCircle(200, 500, 5); // Center of the flower
+      for (let i = 0; i < 6; i++) {
+        const angle = i * (Math.PI / 3);
+        const x = 200 + Math.cos(angle) * 10;
+        const y = 500 + Math.sin(angle) * 10;
+        flower.drawCircle(x, y, 10); // Petals
+      }
+
+      flower.drawCircle(150, 550, 5); // Center of the flower
+      for (let i = 0; i < 6; i++) {
+        const angle = i * (Math.PI / 3);
+        const x = 150 + Math.cos(angle) * 10;
+        const y = 550 + Math.sin(angle) * 10;
+        flower.drawCircle(x, y, 10); // Petals
+      }
+
+      flower.drawCircle(40, 500, 5); // Center of the flower
+      for (let i = 0; i < 6; i++) {
+        const angle = i * (Math.PI / 3);
+        const x = 40 + Math.cos(angle) * 10;
+        const y = 500 + Math.sin(angle) * 10;
+        flower.drawCircle(x, y, 5); // Petals
+      }
+
+      flower.drawCircle(80, 480, 5); // Center of the flower
+      for (let i = 0; i < 6; i++) {
+        const angle = i * (Math.PI / 3);
+        const x = 80 + Math.cos(angle) * 10;
+        const y = 480 + Math.sin(angle) * 10;
+        flower.drawCircle(x, y, 5); // Petals
+      }
+
+      flower.endFill();
+
+      // Create a car
+      const car1 = new PIXI.Graphics();
+      car1.beginFill(0xff0000); // Red color for the car body
+      car1.drawRect(700, 650, 120, 50); // Car body
+      car1.drawRect(760, 580, 60, 90); // Car body
+      car1.drawRect(720, 600, 10, 70); // Car body
+      car1.beginFill(0x000000); // Black color for the wheels
+      car1.drawCircle(720, 700, 20); // Front wheel
+      car1.drawCircle(820, 700, 20); // Back wheel
+      car1.endFill();
+
+      const car2 = new PIXI.Graphics();
+      car2.beginFill(0xffff00); // Yellow color for the car body
+      car2.drawRect(1000, 650, 120, 50); // Car body
+      car2.drawRect(1060, 580, 60, 90); // Car body
+      car2.drawRect(1020, 600, 10, 70); // Car body
+      car2.drawRect(1100, 660, 80, 10); // Car body
+      car2.drawRect(1180, 640, 210, 50); // Car body
+      car2.beginFill(0x000000); // Black color for the wheels
+      car2.drawCircle(1020, 700, 20); // Front wheel
+      car2.drawCircle(1120, 700, 20); // Back wheel
+      car2.endFill();
+
+      // Create text
+      const text = new PIXI.Text("Green Protest!!", {
+        fontFamily: "Arial",
+        fontSize: 24,
+        fill: 0xff0000,
+        align: "center",
+      });
+      text.position.set(1200, 650);
+
+      // Initial sun position
+      let sun = new PIXI.Graphics();
+      sun.beginFill(0xffd700); // Gold color
+      sun.drawCircle(200, 500, 100); // Initial position at the left bottom corner
+      sun.endFill();
+
+      // Add the house, tree, flower, and cars to the scene container
+      sceneContainer.addChild(sun);
+      sceneContainer.addChild(house);
+      sceneContainer.addChild(tree);
+      sceneContainer.addChild(flower);
+      sceneContainer.addChild(car1);
+      sceneContainer.addChild(car2);
+      sceneContainer.addChild(text);
+
+      // Animation loop
+      app.ticker.add(() => {
+     
+        // Move the sun in a clockwise arc
+        const arcRadius = 900;
+        const arcCenterX = 200;
+        const arcCenterY = 500;
+
+        const angle = -app.ticker.lastTime * 0.0005; // Negated angle to make it move clockwise
+        const sunX = arcCenterX + Math.cos(angle) * arcRadius;
+        const sunY = arcCenterY - Math.sin(angle) * arcRadius; // Negated sin to make it rise
+
+        sun.position.set(sunX, sunY); // Set the new position for the sun
+
+        // Move cars from right to left
+        car1.x -= 2;
+        car2.x -= 2;
+
+        // Move text along with cars
+        text.x -= 2;
+
+        // Reset cars' positions when they go off the screen
+        if (car1.x < -1200) {
+          car1.x = 1000;
+        }
+        if (car2.x < -1400) {
+          car2.x = 1000;
+        }
+
+        // Reset text position when it goes off the screen
+        if (text.x < -1400) {
+          text.x = 1000;
+        }
+      });
+    </script>
+  </body>
+</html>
