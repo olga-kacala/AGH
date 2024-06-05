@@ -1,50 +1,30 @@
 package main;
 
-import java.util.Iterator;
-import java.util.Calendar;
-import magazyn.Towar;
-
 import dokumenty.Faktura;
-import dokumenty.Pozycja;
-
-//ZEWNETRZNY RABAT
+import druk.DrukowanieZaawansowane;
+import druk.WydrukFaktury;
+import druk.WydrukFakturyTemplate;
+import magazyn.Towar;
+import config.Konfiguracja;
+import rabaty.AdapterLosowyRabat;
 import rabatlosowy.LosowyRabat;
 
+import java.util.Date;
 
 public class Ui {
-
 	public static void main(String[] args) {
-		Calendar teraz=Calendar.getInstance();
-		
-		//Tworzymy towary
-		Towar t1=new Towar(10,"buty");
-		Towar t2=new Towar(2,"skarpety");
-		
-		//I przykladowa fakture
-		Faktura f=new Faktura(teraz.getTime(),"Fido");
-		f.dodajPozycje(t1,3);
-		f.dodajPozycje(t2, 5);
-		
-		wypiszFakture(f);
+		// Ustawienie losowego rabatu w konfiguracji
+		Konfiguracja.getInstance().setObliczanieRabatu(new AdapterLosowyRabat(new LosowyRabat()));
 
-		
-		//TEST ZEWN. rabatu
-		LosowyRabat lr=new LosowyRabat();
-		System.out.println(lr.losujRabat());
-	}
-	private static void wypiszFakture(Faktura faktura)
-	{
-		System.out.println("=====================================================");
-		System.out.println("FA z dnia: "+faktura.getDataSprzedazy().toString());
-		System.out.println("Wystawiona dla: "+faktura.getKontrahent());
-		System.out.println("Na kwote: "+faktura.getSuma());
-		Iterator<Pozycja> iteratorPozycji=faktura.getIteratorPozycji();
-		while(iteratorPozycji.hasNext())
-		{
-			Pozycja pozycja=iteratorPozycji.next();
-			System.out.println("Towar: "+pozycja.getNazwa()+" Ilosc: "+pozycja.getIlosc()+" Wartosc:" + pozycja.getWartosc());
-		}
-		System.out.println("=====================================================");
-	}
+		Faktura faktura = new Faktura(new Date(), "Jan Kowalski");
+		Towar towar1 = new Towar(3.50, "Mleko");
+		Towar towar2 = new Towar(2.80, "Chleb");
 
+		faktura.dodajPozycje(towar1, 2);
+		faktura.dodajPozycje(towar2, 3);
+
+		// Tworzenie obiektu drukowania faktury z wykorzystaniem zaawansowanego drukowania
+		WydrukFaktury wydruk = new WydrukFaktury(new DrukowanieZaawansowane());
+		wydruk.drukujFakture(faktura);
+	}
 }

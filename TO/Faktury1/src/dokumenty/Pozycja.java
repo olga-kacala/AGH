@@ -1,6 +1,7 @@
 package dokumenty;
 
 import magazyn.Towar;
+import rabaty.ObliczCenePoRabacie;
 
 public class Pozycja {
 	private Towar towar;
@@ -8,12 +9,14 @@ public class Pozycja {
 	private double ilosc;
 	private double wartosc;
 	private String nazwa;
+	private double rabat;
 
-	public Pozycja(Towar towar, double ilosc) {
+	public Pozycja(Towar towar, double ilosc, ObliczCenePoRabacie obliczanieRabatu) {
 		this.towar = towar;
 		this.ilosc = ilosc;
 		this.cena = towar.getCena();
 		this.nazwa = towar.getNazwa();
+		this.rabat = obliczanieRabatu.obliczCenePoRabacie(this.cena);
 		this.przeliczWartosc();
 	}
 
@@ -32,11 +35,10 @@ public class Pozycja {
 		this.przeliczWartosc();
 	}
 
-	public double getCena()
-	{
+	public double getCena() {
 		return this.cena;
 	}
-	
+
 	public void setCena(double cena) {
 		this.cena = cena;
 		this.przeliczWartosc();
@@ -50,9 +52,11 @@ public class Pozycja {
 		return wartosc;
 	}
 
-	// jak sie zmieni cos w pozycji to trzeba wywolac te metode
-	private void przeliczWartosc() {
-		this.wartosc = this.ilosc * this.cena;
+	public double getRabat() {
+		return rabat;
 	}
 
+	private void przeliczWartosc() {
+		this.wartosc = this.ilosc * this.rabat;
+	}
 }
